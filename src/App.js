@@ -5,7 +5,7 @@ import Header from "./Header"
 import PhraseForm from "./PhraseForm"
 import Phrase from "./Phrase"
 import Gif from "./Gif"
-
+import Generator from "./generator"
 import data from './data'
 import parsedData from './parsedData'
 
@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <PhraseForm />
-        <Phrase />
+
+        <Generator />
         <Gif />
       </div>
     );
