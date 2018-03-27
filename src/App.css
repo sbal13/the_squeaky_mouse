@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.phrase {
+  font-family: 'Petit Formal Script', cursive;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg")
+}
