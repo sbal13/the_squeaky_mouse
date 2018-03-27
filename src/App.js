@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { generateProverb } from "./generator"
 import Header from "./Header"
 import PhraseForm from "./PhraseForm"
 import Phrase from "./Phrase"
 import Gif from "./Gif"
+
+import data from './data'
+import parsedData from './parsedData'
 
 class App extends Component {
   render() {

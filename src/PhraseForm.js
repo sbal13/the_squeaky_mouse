@@ -1,13 +1,13 @@
 import React from "react"
 
-class PhraseForm extends React.Component {
-    render() {
-        return (
-            <div class="container">
-                <button class="button is-primary">Consult the Oracle</button>
-            </div>
-        )
-    }
+const PhraseForm = (props) => {
+
+    return (
+        <div class="container">
+            <button onClick={props.handleClick} class="button is-primary">Consult the Oracle</button>
+        </div>
+    )
+
 }
 
 export default PhraseForm
