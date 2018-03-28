@@ -66,9 +66,9 @@ class Generator extends React.Component {
     render() {
         // console.log(this.state)
         return (
-            <div className="App">
+            <div>
                 {this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
-                <Phrase phrase={this.props.scrambled}
+                < Phrase phrase={this.props.scrambled}
                     motivationalPhrase={this.props.motivationalPhrase}
                     embedURL={this.props.embedURL}
                     handleClick={this.generateRandom} />
