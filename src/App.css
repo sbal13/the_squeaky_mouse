@@ -28,10 +28,20 @@
 }
 
 .phrase {
-  font-family: 'Petit Formal Script', cursive;
+  font-family: 'IM Fell French Canon', serif;
+  font-variant: small-caps;
+  color: white
 }
 
 body {
   font-family: 'Josefin Sans', sans-serif;
   background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg")
+}
+
+.frame {
+  background-color: black
+}
+
+.gif {
+  display: flex
 }

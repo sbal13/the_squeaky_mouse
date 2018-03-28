@@ -1,5 +1,5 @@
 import parsedData from './parsedData'
-import data from './data'
+import { phrases } from './data'
 import Phrase from './Phrase'
 
 import React from 'react'
@@ -15,14 +15,14 @@ class Generator extends React.Component {
     }
 
     componentDidMount() {
-        console.log(data)
+        console.log(phrases)
         console.log(parsedData)
     }
 
     generateRandom = () => {
         console.log("ATTEMPT")
         let phraseIndex = this.getRandomNumber(101)
-        let phrase = data[phraseIndex]
+        let phrase = phrases[phraseIndex]
 
         let noPunctuation = phrase.replace(/([^a-z\sA-Z])/g, "")
         let wordsNoPunctuation = noPunctuation.split(" ")
@@ -35,7 +35,7 @@ class Generator extends React.Component {
 
         let location = wordData[this.getRandomNumber(wordData.length)]
         let secondPhraseIndex = location.phraseIndex
-        let secondPhrase = data[secondPhraseIndex]
+        let secondPhrase = phrases[secondPhraseIndex]
         let secondPhraseWords = secondPhrase.split(" ")
 
 

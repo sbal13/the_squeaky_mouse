@@ -4,9 +4,9 @@ import { generateProverb } from "./generator"
 import Header from "./Header"
 import PhraseForm from "./PhraseForm"
 import Phrase from "./Phrase"
-import Gif from "./Gif"
+
 import Generator from "./generator"
-import data from './data'
+import { phrases } from './data'
 import parsedData from './parsedData'
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
       <div className="App">
         <Header />
 
+
         <Generator />
-        <Gif />
       </div>
     );
   }

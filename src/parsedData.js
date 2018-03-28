@@ -1,9 +1,9 @@
-import data from './data'
+import { phrases } from './data'
 
 
 let final = {}
 
-data.forEach((phrase, phraseIndex) => {
+phrases.forEach((phrase, phraseIndex) => {
 	let noPunctuation = phrase.replace(/([^a-z\sA-Z])/g, "")
 
 	let words = noPunctuation.split(" ")
