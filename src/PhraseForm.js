@@ -2,11 +2,11 @@ import React from "react"
 
 const PhraseForm = (props) => {
 
-		return (
-				<div class="container">
-						<button onClick={props.handleClick} class="button is-primary">Consult the Oracle</button>
-				</div>
-		)
+    return (
+        <div className="container">
+            <button onClick={props.handleClick} className="button is-large is-black"><i className="fas fa-bullseye"></i></button>
+        </div>
+    )
 
 }
 

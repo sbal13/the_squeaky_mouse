@@ -11,7 +11,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+ 
 }
 
 .App-title {
@@ -27,21 +27,42 @@
   to { transform: rotate(360deg); }
 }
 
-.phrase {
+.phrase-header {
+  font-family: 'IM Fell French Canon', serif;
+  font-size: 6vw;
+  font-variant: small-caps;
+  color: lightseagreen;
+  text-decoration: lightseagreen;
+  text-decoration-line: inherit
+}
+
+.phrase-content {
   font-family: 'IM Fell French Canon', serif;
   font-variant: small-caps;
-  color: white
+  color: white;
+  font-size: 4vw;
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
   background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg")
 }
 
 .frame {
-  background-color: black
+  background-color: black;
+ 
 }
 
 .gif {
-  display: flex
+  position: relative;
+  background: black; 
+}
+
+iframe {
+  top:0px;
+  width:100%;
+}
+
+button {
+  font-family: 'IM Fell French Canon', serif;
+  
 }

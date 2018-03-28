@@ -1,86 +1,80 @@
 import React, { Component } from 'react';
 import './App.css';
-import { generateProverb } from "./generator"
 import Header from "./Header"
-import PhraseForm from "./PhraseForm"
-import Phrase from "./Phrase"
 import Generator from "./generator"
-import { phrases } from './data'
-import parsedData from './parsedData'
+import { motivationArray } from './data'
 import jwt from 'jsonwebtoken'
-import { motivationArray } from "./data"
 import { API_KEY } from './keys'
 
 class App extends Component {
 
-	state = {
-		searchTerm: "",
-		scrambled: "",
-		embedURL: "",
-		motivationalPhrase: "",
-		shareHash: ""
-	}
+  state = {
+    searchTerm: "",
+    scrambled: "",
+    embedURL: "",
+    motivationalPhrase: "",
+    shareHash: ""
+  }
 
-	changeTerm = (scrambled) => {
-		fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${scrambled}`)
-		.then(res=>res.json())
-		.then(gifInfo => {
+  changeTerm = (scrambled) => {
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${scrambled}`)
+      .then(res => res.json())
+      .then(gifInfo => {
 
-			let phrase = this.getMotivationalWord(
-				)
-			let shareHash = jwt.sign({
-				s: scrambled, 
-				t: scrambled,
-				p: phrase,
-				e: gifInfo.data.embed_url
-			}, "squeaky")
+        let phrase = this.getMotivationalWord(
+        )
+        let shareHash = jwt.sign({
+          s: scrambled,
+          t: scrambled,
+          p: phrase,
+          e: gifInfo.data.embed_url
+        }, "squeaky")
 
-			this.setState({
-				shareHash,
-				scrambled,
-				motivationalPhrase: phrase,
-				searchTerm: scrambled,
-				embedURL: gifInfo.data.embed_url
-			})
-		})
-	}
+        this.setState({
+          shareHash,
+          scrambled,
+          motivationalPhrase: phrase,
+          searchTerm: scrambled,
+          embedURL: gifInfo.data.embed_url
+        })
+      })
+  }
 
-	shuffle = (a) => {
-		for (let i = a.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[a[i], a[j]] = [a[j], a[i]];
-		}
-		return a;
-	}
-	getMotivationalWord = () => {
-		let word = this.shuffle(motivationArray)[0]
-		let wordArray = word.split("")
+  shuffle = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  getMotivationalWord = () => {
+    let word = this.shuffle(motivationArray)[0]
+    let wordArray = word.split("")
 
-		return wordArray.join(" · ").toUpperCase()
-	}
+    return wordArray.join(" · ").toUpperCase()
+  }
 
-	componentDidMount(){
-		let token = window.location.pathname.replace('/', "")
-		if (token){
-			let decoded = jwt.verify(token, "squeaky")
-			this.setState({
-				scrambled: decoded.s, 
-				embedURL: decoded.e, 
-				shareHash: token, 
-				searchTerm: decoded.t,
-				motivationalPhrase: decoded.p
-			}, this.fetchGif)
-		} else {
-			this.changeTerm("The Squeaky Mouse")
-		}
-	}
+  componentDidMount() {
+    let token = window.location.pathname.replace('/', "")
+    if (token) {
+      let decoded = jwt.verify(token, "squeaky")
+      this.setState({
+        scrambled: decoded.s,
+        embedURL: decoded.e,
+        shareHash: token,
+        searchTerm: decoded.t,
+        motivationalPhrase: decoded.p
+      }, this.fetchGif)
+    } else {
+      this.changeTerm("The Squeaky Mouse Gets the Wheel")
+    }
+  }
 
   render() {
-  	console.log
     return (
       <div className="App">
         <Header />
-        <Generator embedURL={this.state.embedURL} motivationalPhrase={this.state.motivationalPhrase} changeTerm={this.changeTerm} shareHash={this.state.shareHash} scrambled={this.state.scrambled}/>
+        <Generator embedURL={this.state.embedURL} motivationalPhrase={this.state.motivationalPhrase} changeTerm={this.changeTerm} shareHash={this.state.shareHash} scrambled={this.state.scrambled} />
       </div>
     );
   }
