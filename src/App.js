@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { generateProverb } from "./generator"
 import Header from "./Header"
-import PhraseForm from "./PhraseForm"
-import Phrase from "./Phrase"
 import Generator from "./generator"
-import { phrases } from './data'
-import parsedData from './parsedData'
 import jwt from 'jsonwebtoken'
 import { motivationArray } from "./data"
-import { API_KEY } from './keys'
+import { API_KEY, GOOGLE_API_KEY} from './keys'
+
+const MY_URL = "http://localhost:3000"
 
 class App extends Component {
 
@@ -18,7 +15,7 @@ class App extends Component {
 		scrambled: "",
 		embedURL: "",
 		motivationalPhrase: "",
-		shareHash: ""
+		shareURL: ""
 	}
 
 	changeTerm = (scrambled) => {
@@ -26,8 +23,8 @@ class App extends Component {
 		.then(res=>res.json())
 		.then(gifInfo => {
 
-			let phrase = this.getMotivationalWord(
-				)
+			let phrase = this.getMotivationalWord()
+
 			let shareHash = jwt.sign({
 				s: scrambled, 
 				t: scrambled,
@@ -35,12 +32,26 @@ class App extends Component {
 				e: gifInfo.data.embed_url
 			}, "squeaky")
 
-			this.setState({
-				shareHash,
-				scrambled,
-				motivationalPhrase: phrase,
-				searchTerm: scrambled,
-				embedURL: gifInfo.data.embed_url
+			fetch(`https://www.googleapis.com/urlshortener/v1/url?key=${GOOGLE_API_KEY}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				}, 
+				body: JSON.stringify({
+					"longUrl": `${MY_URL}/${shareHash}`
+				})
+			})
+			.then(res => res.json())
+			.then(res => {
+				console.log(res)
+
+				this.setState({
+					shareURL: res.id,
+					scrambled,
+					motivationalPhrase: phrase,
+					searchTerm: scrambled,
+					embedURL: gifInfo.data.embed_url
+				})
 			})
 		})
 	}
@@ -66,7 +77,7 @@ class App extends Component {
 			this.setState({
 				scrambled: decoded.s, 
 				embedURL: decoded.e, 
-				shareHash: token, 
+				shareURL: "", 
 				searchTerm: decoded.t,
 				motivationalPhrase: decoded.p
 			}, this.fetchGif)
@@ -75,15 +86,19 @@ class App extends Component {
 		}
 	}
 
-  render() {
-  	console.log
-    return (
-      <div className="App">
-        <Header />
-        <Generator embedURL={this.state.embedURL} motivationalPhrase={this.state.motivationalPhrase} changeTerm={this.changeTerm} shareHash={this.state.shareHash} scrambled={this.state.scrambled}/>
-      </div>
-    );
-  }
+	render() {
+		console.log("RENDERING")
+		return (
+			<div className="App">
+				<Header />
+				<Generator embedURL={this.state.embedURL} 
+									 motivationalPhrase={this.state.motivationalPhrase} 
+									 changeTerm={this.changeTerm} 
+									 shareURL={this.state.shareURL} 
+									 scrambled={this.state.scrambled}/>
+			</div>
+		);
+	}
 }
 
 export default App;

@@ -7,7 +7,7 @@ const Gif = (props) => {
 			<div class="hero-body">
 				<div class="container">
 					<h1 class="title gif">
-						<iframe src={props.embedURL} width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+						<iframe src={props.embedURL} title="Your Squeaky Mouse" width="100%" height="100%" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
 					</h1>
 
 				</div>

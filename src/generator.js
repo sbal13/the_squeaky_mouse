@@ -3,20 +3,12 @@ import { phrases } from './data'
 import Phrase from './Phrase'
 import React from 'react'
 
-const MY_URL = "http://localhost:3000"
 class Generator extends React.Component {
 
-    state = {
-        phraseOne: "",
-        phraseTwo: "",
-        scrambled: "",
-        reverseScrambled: ""
-    }
-
-    generateRandom = () => {
-        console.log("ATTEMPT")
-        let phraseIndex = this.getRandomNumber(101)
-        let phrase = phrases[phraseIndex]
+	generateRandom = () => {
+		console.log("ATTEMPT")
+		let phraseIndex = this.getRandomNumber(101)
+		let phrase = phrases[phraseIndex]
 
 		let noPunctuation = phrase.replace(/([^a-z\sA-Z])/g, "")
 		let wordsNoPunctuation = noPunctuation.split(" ")
@@ -27,10 +19,10 @@ class Generator extends React.Component {
 
 		let wordData = parsedData[matchingWord.toLowerCase()]
 
-        let location = wordData[this.getRandomNumber(wordData.length)]
-        let secondPhraseIndex = location.phraseIndex
-        let secondPhrase = phrases[secondPhraseIndex]
-        let secondPhraseWords = secondPhrase.split(" ")
+		let location = wordData[this.getRandomNumber(wordData.length)]
+		let secondPhraseIndex = location.phraseIndex
+		let secondPhrase = phrases[secondPhraseIndex]
+		let secondPhraseWords = secondPhrase.split(" ")
 
 
 		if (secondPhraseIndex === phraseIndex
@@ -55,14 +47,14 @@ class Generator extends React.Component {
 			secondHalf = words.slice(wordIndex + 1)
 		}
 
-		let wordsOverThreeFirst = firstHalf.filter(word => word.length > 3)
-		let wordsOverThreeSecond = secondHalf.filter(word => word.length > 3)
+		// let wordsOverThreeFirst = firstHalf.filter(word => word.length > 3)
+		// let wordsOverThreeSecond = secondHalf.filter(word => word.length > 3)
 
-		let first = wordsOverThreeFirst[this.getRandomNumber(wordsOverThreeFirst.length)] || ""
-		let second = wordsOverThreeSecond[this.getRandomNumber(wordsOverThreeSecond.length)] || ""
+		// let first = wordsOverThreeFirst[this.getRandomNumber(wordsOverThreeFirst.length)] || ""
+		// let second = wordsOverThreeSecond[this.getRandomNumber(wordsOverThreeSecond.length)] || ""
 
 
-		let searchTerm = first + " " + second
+		// let searchTerm = first + " " + second
 
 		let scrambled = firstHalf.concat(secondHalf).join(" ")
 		this.props.changeTerm(scrambled)
@@ -74,12 +66,22 @@ class Generator extends React.Component {
 		return Math.floor(Math.random() * num)
 	}
 
+	handleCopy = (event) => {
+		event.target.select()
+		document.execCommand("Copy");
+
+		alert("Copied!")
+	}
+
 	render() {
 		// console.log(this.state)
 		return (
 			<div className="App">
-				<Phrase phrase={this.props.scrambled} motivationalPhrase={this.props.motivationalPhrase} embedURL={this.props.embedURL} handleClick={this.generateRandom} />
-				<a href={`${MY_URL}/${this.props.shareHash}`}>Share With Your Friends</a>
+				{this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL}/> : null}
+				<Phrase phrase={this.props.scrambled} 
+						motivationalPhrase={this.props.motivationalPhrase} 
+						embedURL={this.props.embedURL} 
+						handleClick={this.generateRandom} />
 			</div>
 		);
 	}
