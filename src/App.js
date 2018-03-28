@@ -4,14 +4,12 @@ import { generateProverb } from "./generator"
 import Header from "./Header"
 import PhraseForm from "./PhraseForm"
 import Phrase from "./Phrase"
-import Gif from "./Gif"
 import Generator from "./generator"
-import data from './data'
+import { phrases } from './data'
 import parsedData from './parsedData'
 import jwt from 'jsonwebtoken'
-
-
-const API_KEY = "VD8euWlwM5g55j3YfYz9YUmRT8Cs1h9W"
+import { motivationArray } from "./data"
+import { API_KEY } from './keys'
 
 class App extends Component {
 
@@ -19,6 +17,7 @@ class App extends Component {
 		searchTerm: "",
 		scrambled: "",
 		embedURL: "",
+		motivationalPhrase: "",
 		shareHash: ""
 	}
 
@@ -27,26 +26,50 @@ class App extends Component {
 		.then(res=>res.json())
 		.then(gifInfo => {
 
+			let phrase = this.getMotivationalWord(
+				)
 			let shareHash = jwt.sign({
 				s: scrambled, 
 				t: scrambled,
+				p: phrase,
 				e: gifInfo.data.embed_url
 			}, "squeaky")
 
 			this.setState({
 				shareHash,
 				scrambled,
+				motivationalPhrase: phrase,
 				searchTerm: scrambled,
 				embedURL: gifInfo.data.embed_url
 			})
 		})
 	}
 
+	shuffle = (a) => {
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+	getMotivationalWord = () => {
+		let word = this.shuffle(motivationArray)[0]
+		let wordArray = word.split("")
+
+		return wordArray.join(" · ").toUpperCase()
+	}
+
 	componentDidMount(){
 		let token = window.location.pathname.replace('/', "")
 		if (token){
 			let decoded = jwt.verify(token, "squeaky")
-			this.setState({scrambled: decoded.s, embedURL: decoded.e, shareHash: token, searchTerm: decoded.t}, this.fetchGif)
+			this.setState({
+				scrambled: decoded.s, 
+				embedURL: decoded.e, 
+				shareHash: token, 
+				searchTerm: decoded.t,
+				motivationalPhrase: decoded.p
+			}, this.fetchGif)
 		} else {
 			this.changeTerm("The Squeaky Mouse")
 		}
@@ -57,8 +80,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Generator changeTerm={this.changeTerm} shareHash={this.state.shareHash} scrambled={this.state.scrambled}/>
-        <Gif url={this.state.embedURL}/>
+        <Generator embedURL={this.state.embedURL} motivationalPhrase={this.state.motivationalPhrase} changeTerm={this.changeTerm} shareHash={this.state.shareHash} scrambled={this.state.scrambled}/>
       </div>
     );
   }

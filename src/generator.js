@@ -1,15 +1,22 @@
 import parsedData from './parsedData'
-import data from './data'
+import { phrases } from './data'
 import Phrase from './Phrase'
 import React from 'react'
 
 const MY_URL = "http://localhost:3000"
-
 class Generator extends React.Component {
-	generateRandom = () => {
-		// console.log("ATTEMPT")
-		let phraseIndex = this.getRandomNumber(101)
-		let phrase = data[phraseIndex]
+
+    state = {
+        phraseOne: "",
+        phraseTwo: "",
+        scrambled: "",
+        reverseScrambled: ""
+    }
+
+    generateRandom = () => {
+        console.log("ATTEMPT")
+        let phraseIndex = this.getRandomNumber(101)
+        let phrase = phrases[phraseIndex]
 
 		let noPunctuation = phrase.replace(/([^a-z\sA-Z])/g, "")
 		let wordsNoPunctuation = noPunctuation.split(" ")
@@ -20,10 +27,10 @@ class Generator extends React.Component {
 
 		let wordData = parsedData[matchingWord.toLowerCase()]
 
-		let location = wordData[this.getRandomNumber(wordData.length)]
-		let secondPhraseIndex = location.phraseIndex
-		let secondPhrase = data[secondPhraseIndex]
-		let secondPhraseWords = secondPhrase.split(" ")
+        let location = wordData[this.getRandomNumber(wordData.length)]
+        let secondPhraseIndex = location.phraseIndex
+        let secondPhrase = phrases[secondPhraseIndex]
+        let secondPhraseWords = secondPhrase.split(" ")
 
 
 		if (secondPhraseIndex === phraseIndex
@@ -71,7 +78,7 @@ class Generator extends React.Component {
 		// console.log(this.state)
 		return (
 			<div className="App">
-				<Phrase phrase={this.props.scrambled} handleClick={this.generateRandom} />
+				<Phrase phrase={this.props.scrambled} motivationalPhrase={this.props.motivationalPhrase} embedURL={this.props.embedURL} handleClick={this.generateRandom} />
 				<a href={`${MY_URL}/${this.props.shareHash}`}>Share With Your Friends</a>
 			</div>
 		);
