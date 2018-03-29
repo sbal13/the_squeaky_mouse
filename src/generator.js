@@ -57,7 +57,7 @@ class Generator extends React.Component {
 		if (phrases.includes(scrambled)){
 			return this.generateRandom()
 		}
-		this.props.changeTerm(scrambled, sortedWords[0]
+		this.props.changeTerm(scrambled, sortedWords[0])
 	}
 
 
