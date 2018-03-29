@@ -32,8 +32,19 @@
   font-size: 6vw;
   font-variant: small-caps;
   color: lightseagreen;
-  text-decoration: lightseagreen;
   text-decoration-line: inherit
+}
+
+.nav-header {
+  font-family: 'IM Fell French Canon', serif;
+  font-size: 2vw;
+}
+
+.nav-content {
+  font-family: 'IM Fell French Canon', serif;
+  font-variant: small-caps;
+  color: lightseagreen;
+  font-size: 2vw;
 }
 
 .phrase-content {

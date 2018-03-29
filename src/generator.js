@@ -46,19 +46,9 @@ class Generator extends React.Component {
 			secondHalf = words.slice(wordIndex + 1)
 		}
 
-		// let wordsOverThreeFirst = firstHalf.filter(word => word.length > 3)
-		// let wordsOverThreeSecond = secondHalf.filter(word => word.length > 3)
- 
-		// let first = wordsOverThreeFirst[this.getRandomNumber(wordsOverThreeFirst.length)] || ""
-		// let second = wordsOverThreeSecond[this.getRandomNumber(wordsOverThreeSecond.length)] || ""
- 
- 
-		// let searchTerm = first + " " + second
-
 		let allWords = firstHalf.concat(secondHalf)
 
 		let sortedWords = allWords.slice().sort((a,b) => b.length - a.length)
-		// let searchTerm = allWords[this.getRandomNumber(allWords.length)]
 
 		let scrambled = allWords.join(" ")
 		console.log("PHRASE 1", phrase)
@@ -71,28 +61,29 @@ class Generator extends React.Component {
 	}
 
 
-	getRandomNumber = (num) => {
-		return Math.floor(Math.random() * num)
-	}
+    getRandomNumber = (num) => {
+        return Math.floor(Math.random() * num)
+    }
 
-	handleCopy = (event) => {
-		event.target.select()
-		document.execCommand("Copy");
+    handleCopy = (event) => {
+        event.target.select()
+        document.execCommand("Copy");
 
-		alert("Copied!")
-	}
+        alert("Copied! <'`,,-,,)-----")
+    }
 
-	render() {
-		return (
-			<div className="App">
-				{this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
-				<Phrase phrase={this.props.scrambled}
-					motivationalPhrase={this.props.motivationalPhrase}
-					embedURL={this.props.embedURL}
-					handleClick={this.generateRandom} />
-			</div>
-		);
-	}
+    render() {
+        // console.log(this.state)
+        return (
+            <div className="App">
+                {this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
+                <Phrase phrase={this.props.scrambled}
+                    motivationalPhrase={this.props.motivationalPhrase}
+                    embedURL={this.props.embedURL}
+                    handleClick={this.generateRandom} />
+            </div>
+        );
+    }
 }
 
 export default Generator
