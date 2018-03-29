@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from "./Header"
+
 import Generator from "./generator"
 import jwt from 'jsonwebtoken'
 import { motivationArray } from "./data"
@@ -43,7 +43,7 @@ class App extends Component {
         })
           .then(res => res.json())
           .then(res => {
-            console.log(res)
+
 
             this.setState({
               shareURL: res.id,
@@ -87,10 +87,10 @@ class App extends Component {
   }
 
   render() {
-    console.log("RENDERING")
+
     return (
       <div className="App">
-        <Header />
+
         <Generator embedURL={this.state.embedURL}
           motivationalPhrase={this.state.motivationalPhrase}
           changeTerm={this.changeTerm}

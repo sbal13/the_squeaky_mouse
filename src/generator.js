@@ -6,7 +6,7 @@ import React from 'react'
 class Generator extends React.Component {
 
     generateRandom = () => {
-        console.log("ATTEMPT")
+
         let phraseIndex = this.getRandomNumber(101)
         let phrase = phrases[phraseIndex]
 
@@ -60,14 +60,65 @@ class Generator extends React.Component {
         event.target.select()
         document.execCommand("Copy");
 
-        alert("Copied! <'`,,-,,)-----")
+        alert(`Copied! \n
+        _..----.._    _
+        .'  .--.    "-.(0)
+'-.__.-'"'=:|   ,  _)_ \__ . c\'-..
+         '''------'---''---'-"
+
+                                           
+`)
     }
 
+    showAuthors = () => {
+        console.log(`
+             __             _,-"~^"-.
+           _// )      _,-"~\`         \`.
+         ." ( /\`"-,-"\`                 ;
+        / 6                             ;
+       /           ,             ,-"     ;
+      (,__.--.      \           /        ;
+       //'   /\`-.\   |          |        \`._________
+         _.-'_/\`  )  )--...,,,___\     \-----------,)
+       ((("~\` _.-'.-'           __\`-.   )         //
+             ((("\`             (((---~"\`         //
+                                                ((______
+                                                
+    `)
+        console.log("By @meryldakin and @sbal13")
+        console.log("Inspired by @johann")
+    }
+
+
+
+
+
     render() {
-        // console.log(this.state)
+
         return (
             <div className="App">
-                {this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
+                <div className="field level">
+                    <div className="level-item has-text-centered">
+                        <h1 className="nav-header">THE SQUEAKY MOUSE</h1>
+                    </div>
+                    <div className="level-item has-text-centered">
+                        <figure className="image is-48x48 hoveringMouse" onClick={this.showAuthors} >
+                            <img alt="mouse" src="https://d30y9cdsu7xlg0.cloudfront.net/png/13583-200.png" />
+                        </figure>
+
+                        <p className="control has-icons-left has-icons-right ">
+
+                            {this.props.shareURL ? <input className="input is-rounded is-small is-primary" readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
+
+                            <span className="icon is-small is-right">
+                                <i className="fas fa-copy hoveringMouse"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div className="level-item has-text-centered">
+                        <h1 className="nav-content" >When it rains, it drains.</h1>
+                    </div>
+                </div>
                 <Phrase phrase={this.props.scrambled}
                     motivationalPhrase={this.props.motivationalPhrase}
                     embedURL={this.props.embedURL}

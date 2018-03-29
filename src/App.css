@@ -37,14 +37,14 @@
 
 .nav-header {
   font-family: 'IM Fell French Canon', serif;
-  font-size: 2vw;
+  /* font-size: 2vw; */
 }
 
 .nav-content {
   font-family: 'IM Fell French Canon', serif;
   font-variant: small-caps;
   color: lightseagreen;
-  font-size: 2vw;
+  /* font-size: 2vw; */
 }
 
 .phrase-content {
@@ -55,7 +55,8 @@
 }
 
 body {
-  background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg")
+  background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg");
+  background-repeat: repeat-x;
 }
 
 .frame {
@@ -76,4 +77,13 @@ iframe {
 button {
   font-family: 'IM Fell French Canon', serif;
   
+}
+
+input {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700
+}
+
+.hoveringMouse {
+  cursor: pointer
 }
