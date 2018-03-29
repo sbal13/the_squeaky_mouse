@@ -65,17 +65,36 @@ class Generator extends React.Component {
     }
 
     handleCopy = (event) => {
-        event.target.select()
+       
+
+	if (navigator.share) {
+		  navigator.share({
+		      title: 'The Squeaky Mouse',
+		      text: 'Gets the Wheel',
+		      url: this.props.shareURL,
+		  })
+		    .then(() => console.log(`Copied! \n
+	        _..----.._    _
+	        .'  .--.    "-.(0)
+	'-.__.-'"'=:|   ,  _)_ \__ . c\'-..
+	         '''------'---''---'-"
+
+	                                           
+	`))
+		    .catch((error) => console.log('Error sharing', error));
+	} else {
+		 event.target.select()
         document.execCommand("Copy");
 
-        alert(`Copied! \n
-        _..----.._    _
-        .'  .--.    "-.(0)
-'-.__.-'"'=:|   ,  _)_ \__ . c\'-..
-         '''------'---''---'-"
+	        alert(`Copied! \n
+	        _..----.._    _
+	        .'  .--.    "-.(0)
+	'-.__.-'"'=:|   ,  _)_ \__ . c\'-..
+	         '''------'---''---'-"
 
-                                           
-`)
+	                                           
+	`)
+	}
     }
 
     showAuthors = () => {
