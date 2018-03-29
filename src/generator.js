@@ -51,8 +51,7 @@ class Generator extends React.Component {
         let sortedWords = allWords.slice().sort((a, b) => b.length - a.length)
 
         let scrambled = allWords.join(" ")
-        console.log("PHRASE 1", phrase)
-        console.log("PHRASE 2", phrases[location.phraseIndex])
+
 
         if (phrases.includes(scrambled)) {
             return this.generateRandom()
