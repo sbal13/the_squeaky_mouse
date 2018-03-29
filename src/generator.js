@@ -67,9 +67,9 @@ class Generator extends React.Component {
     handleCopy = (event) => {
        
 
-	// if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  
-	// } else {
+	} else {
 		 event.target.select()
         document.execCommand("copy");
 
@@ -78,7 +78,7 @@ class Generator extends React.Component {
           \\"/\` ___  ;________.'
            \` ^^   ^^                         
 	`)
-	// }
+	}
     }
 
     showAuthors = () => {
