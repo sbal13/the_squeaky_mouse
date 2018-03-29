@@ -1,89 +1,89 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
  
 }
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
 }
 
 .phrase-header {
-  font-family: 'IM Fell French Canon', serif;
-  font-size: 4vw;
-  font-variant: small-caps;
-  color: lightseagreen;
-  text-decoration-line: inherit
+	font-family: 'IM Fell French Canon', serif;
+	font-size: 7vw;
+	font-variant: small-caps;
+	color: lightseagreen;
+	text-decoration-line: inherit
 }
 
 .nav-header {
-  font-family: 'IM Fell French Canon', serif;
-  /* font-size: 2vw; */
+	font-family: 'IM Fell French Canon', serif;
+	/* font-size: 2vw; */
 }
 
 .nav-content {
-  font-family: 'IM Fell French Canon', serif;
-  font-variant: small-caps;
-  color: lightseagreen;
-  /* font-size: 2vw; */
+	font-family: 'IM Fell French Canon', serif;
+	font-variant: small-caps;
+	color: lightseagreen;
+	/* font-size: 2vw; */
 }
 
 .phrase-content {
-  font-family: 'IM Fell French Canon', serif;
-  font-variant: small-caps;
-  color: white;
-  font-size: 3vw;
+	font-family: 'IM Fell French Canon', serif;
+	font-variant: small-caps;
+	color: white;
+	font-size: 5vw;
 }
 
 body {
-  background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg");
-  background-repeat: repeat-x;
+	background-image: url("http://snsltd.co.uk/wp-content/uploads/2016/12/Untitled-154.jpg");
+	background-repeat: repeat-x;
 }
 
 .frame {
-  background-color: black;
+	background-color: black;
  
 }
 
 .gif {
-  position: relative;
-  background: black; 
+	position: relative;
+	background: black; 
 }
 
 iframe {
-  top:0px;
-  width:100%;
+	top:0px;
+	width:100%;
 }
 
 button {
-  font-family: 'IM Fell French Canon', serif;
-  
+	font-family: 'IM Fell French Canon', serif;
+	
 }
 
 input {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 700
 }
 
 .hoveringMouse {
-  cursor: pointer
+	cursor: pointer
 }
