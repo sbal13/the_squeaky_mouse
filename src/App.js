@@ -6,7 +6,8 @@ import jwt from 'jsonwebtoken'
 import { motivationArray } from "./data"
 import { API_KEY, GOOGLE_API_KEY } from './keys'
 
-const MY_URL = "http://localhost:3000"
+// const MY_URL = "http://localhost:3000"
+const MY_URL = "https://the-squeaky-mouse.herokuapp.com"
 
 class App extends Component {
 
