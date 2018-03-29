@@ -70,15 +70,23 @@ class App extends Component {
 
 	componentDidMount() {
 		let token = window.location.pathname.replace('/', "")
-		if (token) {
-			let decoded = jwt.verify(token, "squeaky")
-			this.setState({
-				scrambled: decoded.s,
-				embedURL: decoded.e,
-				shareURL: "",
-				searchTerm: decoded.t,
-				motivationalPhrase: decoded.p
-			}, this.fetchGif)
+		let decoded;
+		if (token){
+			try {
+				decoded = jwt.verify(token, "squeaky")
+			
+				
+
+					this.setState({
+						scrambled: decoded.s,
+						embedURL: decoded.e,
+						shareURL: "",
+						searchTerm: decoded.t,
+						motivationalPhrase: decoded.p
+					}, this.fetchGif) 
+			} catch(error) {
+				this.changeTerm("The Squeaky Mouse", "The Squeaky Mouse")
+			}
 		} else {
 			this.changeTerm("The Squeaky Mouse", "The Squeaky Mouse")
 		}
