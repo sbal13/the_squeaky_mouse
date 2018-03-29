@@ -67,18 +67,18 @@ class Generator extends React.Component {
     handleCopy = (event) => {
        
 
-	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-
-	} else {
+	// if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ 
+	// } else {
 		 event.target.select()
-        document.execCommand("Copy");
+        document.execCommand("copy");
 
 	        alert(`Copied! \n
 	 ()-().----.          .
           \\"/\` ___  ;________.'
            \` ^^   ^^                         
 	`)
-	}
+	// }
     }
 
     showAuthors = () => {
