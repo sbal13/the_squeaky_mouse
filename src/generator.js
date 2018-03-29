@@ -6,7 +6,6 @@ import React from 'react'
 class Generator extends React.Component {
 
     generateRandom = () => {
-
         let phraseIndex = this.getRandomNumber(101)
         let phrase = phrases[phraseIndex]
 
@@ -47,8 +46,18 @@ class Generator extends React.Component {
             secondHalf = words.slice(wordIndex + 1)
         }
 
-        let scrambled = firstHalf.concat(secondHalf).join(" ")
-        this.props.changeTerm(scrambled)
+        let allWords = firstHalf.concat(secondHalf)
+
+        let sortedWords = allWords.slice().sort((a, b) => b.length - a.length)
+
+        let scrambled = allWords.join(" ")
+        console.log("PHRASE 1", phrase)
+        console.log("PHRASE 2", phrases[location.phraseIndex])
+
+        if (phrases.includes(scrambled)) {
+            return this.generateRandom()
+        }
+        this.props.changeTerm(scrambled, sortedWords[0])
     }
 
 
