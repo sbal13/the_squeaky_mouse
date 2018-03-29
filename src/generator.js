@@ -60,15 +60,15 @@ class Generator extends React.Component {
         event.target.select()
         document.execCommand("Copy");
 
-        alert("Copied!")
+        alert("Copied! <'`,,-,,)-----")
     }
 
     render() {
         // console.log(this.state)
         return (
-            <div>
+            <div className="App">
                 {this.props.shareURL ? <input readOnly onClick={this.handleCopy} value={this.props.shareURL} /> : null}
-                < Phrase phrase={this.props.scrambled}
+                <Phrase phrase={this.props.scrambled}
                     motivationalPhrase={this.props.motivationalPhrase}
                     embedURL={this.props.embedURL}
                     handleClick={this.generateRandom} />

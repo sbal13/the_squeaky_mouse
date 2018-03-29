@@ -5,7 +5,7 @@ import Gif from "./Gif"
 const Phrase = (props) => {
 
     return (
-        <section className="hero is-medium is-primary is-bold">
+        <section className="hero is-small is-primary is-bold">
             <div className="hero-body">
                 <div className="container">
                     <div className="box frame">

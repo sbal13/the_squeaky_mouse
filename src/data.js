@@ -1,8 +1,10 @@
-const motivationWords = "Abundant,Accomplished,Achieving,Active,Admirable,Adorable,Adventurous,Admired,Affluent,Agreeable,Alert,Aligned,Alive,Amazing,Appealing,Appreciate,Artistic,Astounding,Astute,Attentive,Attractive,Auspicious,Authentic,Awake,Aware,Beaming,Beautiful,Best,Blessed,Bliss,Bold,Bright,Brilliant,Brisk,Buoyant,Calm,Capable,Centered,Certain,Charming,Cheerful,Clear,Clever,Competent,Complete,Confident,Connected,Conscious,Considerate,Convenient,Courageous,Creative,Daring,Dazzling,Delicious,Delightful,Desirable,Determined,Diligent,Discerning,Discover,Dynamic,Eager,Easy,Efficient,Effortless,Elegant,Eloquent,Energetic,Endless,Enhancing,Engaging,Enormous,Enterprising,Enthusiastic,Enticing,Excellent,Exceptional,Exciting,Experienced,Exquisite,Fabulous,Fair,Far-Sighted,Fascinating,Fine,Flattering,Flourishing,Fortunate,Free,Friendly,Fulfilled,Fun,Generous,Genuine,Gifted,Glorious,Glowing,Good,Good-Looking,Gorgeous,Graceful,Gracious,Grand,Great,Handsome,Happy,Hardy,Harmonious,Healed,Healthy,Helpful,Honest,Humorous,Ideal,Imaginative,Impressive,Industrious,Ingenious,Innovative,Inspired,Intelligent,Interested,Interesting,Intuitive,Inventive,Invincible,Inviting,Irresistible,Joyous,Judicious,Keen,Kind,Knowing,Limitless,Lively,Loving,Lucky,Luminous,Magical,Magnificent,Marvelous,Masterful,Mighty,Miraculous,Motivated,Natural,Neat,Nice,Nurturing,Noble,Optimistic,Outstanding,Passionate,Peaceful,Perfect,Persevering,Persistent,Playful,Pleasing,Plentiful,Positive,Powerful,Precious,Prepared,Productive,Profound,Prompt,Prosperous,Proud,Qualified,Quick,Radiant,Reasonable,Refined,Refreshing,Relaxing,Reliable,Remarkable,Resolute,Resourceful,Respected,Rewarding,Robust,Safe,Satisfied,Secure,Seductive,Self-Reliant,Sensational,Sensible,Sensitive,Serene,Sharing,Skillful,Smart,Smashing,Smooth,Sparkling,Spiritual,Splendid,Strong,Stunning,Successful,Superb,Swift,Talented,Tenacious,Terrific,Thankful,Thrilling,Thriving,Timely,Trusting,Truthful,Ultimate,Unique,Valiant,Valuable,Versatile,Vibrant,Victorious,Vigorous,Vivacious,Vivid,Warm,Wealthy,Well,Whole,Wise,Wonderful,Worthy,Young,Youthful,Zeal,Zest"
+const motivationWords = "Abundant,Achieving,Active,Admirable,Adorable,Adventurous,Admired,Affluent,Agreeable,Alert,Aligned,Alive,Amazing,Appealing,Appreciate,Artistic,Astounding,Astute,Attentive,Attractive,Auspicious,Authentic,Awake,Aware,Beaming,Beautiful,Best,Blessed,Bliss,Bold,Bright,Brilliant,Brisk,Buoyant,Calm,Capable,Centered,Certain,Charming,Cheerful,Clear,Clever,Competent,Complete,Confident,Connected,Conscious,Considerate,Convenient,Courageous,Creative,Daring,Dazzling,Delicious,Delightful,Desirable,Determined,Diligent,Discerning,Discover,Dynamic,Eager,Easy,Efficient,Effortless,Elegant,Eloquent,Energetic,Endless,Enhancing,Engaging,Enormous,Enterprising,Enthusiastic,Enticing,Excellent,Exceptional,Exciting,Experienced,Exquisite,Fabulous,Fair,Far-Sighted,Fascinating,Fine,Flattering,Flourishing,Fortunate,Free,Friendly,Fulfilled,Fun,Generous,Genuine,Gifted,Glorious,Glowing,Good,Good-Looking,Gorgeous,Graceful,Gracious,Grand,Great,Handsome,Happy,Hardy,Harmonious,Healed,Healthy,Helpful,Honest,Humorous,Ideal,Imaginative,Impressive,Industrious,Ingenious,Innovative,Inspired,Intelligent,Interested,Interesting,Intuitive,Inventive,Invincible,Inviting,Irresistible,Joyous,Judicious,Keen,Kind,Knowing,Limitless,Lively,Loving,Lucky,Luminous,Magical,Magnificent,Marvelous,Masterful,Mighty,Miraculous,Motivated,Natural,Neat,Nice,Nurturing,Noble,Optimistic,Outstanding,Passionate,Peaceful,Perfect,Persevering,Persistent,Playful,Pleasing,Plentiful,Positive,Powerful,Precious,Prepared,Productive,Profound,Prompt,Prosperous,Proud,Qualified,Quick,Radiant,Reasonable,Refined,Refreshing,Relaxing,Reliable,Remarkable,Resolute,Resourceful,Respected,Rewarding,Robust,Safe,Satisfied,Secure,Seductive,Sensational,Sensible,Sensitive,Serene,Sharing,Skillful,Smart,Smashing,Smooth,Sparkling,Spiritual,Splendid,Strong,Stunning,Successful,Superb,Swift,Talented,Tenacious,Terrific,Thankful,Thrilling,Thriving,Timely,Trusting,Truthful,Ultimate,Unique,Valiant,Valuable,Versatile,Vibrant,Victorious,Vigorous,Vivacious,Vivid,Warm,Wealthy,Well,Whole,Wise,Wonderful,Worthy,Young,Youthful,Zeal,Zest"
 export const motivationArray = motivationWords.split(",")
 
 export const phrases = [
   "Absence makes the heart grow fonder.",
+  "When it rains, it drains.",
+  "The squeaky cheese gets the wheel.",
   "Actions speak louder than words.",
   "After the feast comes the reckoning.",
   "All that glitters is not gold.",
@@ -84,6 +86,7 @@ export const phrases = [
   "The spirit is willing, but the flesh is weak.",
   "The squeaking wheel gets the oil.",
   "Strike while the iron is hot.",
+  "Spare the rod and spoil the child.",
   "There is no honor among thieves.",
   "There's more than one way to skin a cat.",
   "There's no fool like an old fool.",
@@ -96,7 +99,7 @@ export const phrases = [
   "The way to a man's heart is through his stomach.",
   "When in Rome, do as the Romans do.",
   "When the cat's away, the mice play.",
-  "Where there's smoke, there's fire.",
+  "Where there is smoke, there is fire.",
   "You can lead a horse to water, but you can't make him drink.",
   "You can't have your cake and eat it too.",
   "You can't teach an old dog new tricks.",
