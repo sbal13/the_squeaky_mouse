@@ -1,7 +1,7 @@
 import React from "react";
 
 const PhraseExplainer = props => {
-  const { isActive, firstPhrase, secondPhrase } = props;
+  const { isActive, firstPhrase, secondPhrase, searchTerm } = props;
 
   return (
     <div className={`modal ${isActive}`}>
@@ -17,6 +17,9 @@ const PhraseExplainer = props => {
             </p>
             <p>
               <strong>Second Phrase:</strong> {secondPhrase}
+            </p>
+            <p>
+              <strong>Gif search term:</strong> {searchTerm}
             </p>
           </div>
         </article>

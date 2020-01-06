@@ -80,6 +80,7 @@ class Generator extends React.Component {
           embedURL={this.props.embedURL}
           firstPhrase={this.props.firstPhrase}
           secondPhrase={this.props.secondPhrase}
+          searchTerm={this.props.searchTerm}
         />
       </div>
     );

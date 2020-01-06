@@ -29,11 +29,6 @@ class App extends Component {
       secondPhrase
     } = generateRandom();
 
-    console.log("****************************");
-    console.log("First Phrase:", firstPhrase);
-    console.log("Second Phrase:", secondPhrase);
-    console.log("****************************");
-
     fetch(
       `https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${searchTerm}`
     )
@@ -113,6 +108,7 @@ class App extends Component {
           scrambled={this.state.scrambled}
           firstPhrase={this.state.firstPhrase}
           secondPhrase={this.state.secondPhrase}
+          searchTerm={this.state.searchTerm}
         />
       </div>
     );
