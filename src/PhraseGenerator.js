@@ -2,7 +2,7 @@ import Phrase from "./Phrase";
 import PhraseForm from "./PhraseForm";
 import React from "react";
 
-class Generator extends React.Component {
+class PhraseGenerator extends React.Component {
   handleCopy = event => {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -86,4 +86,4 @@ class Generator extends React.Component {
   }
 }
 
-export default Generator;
+export default PhraseGenerator;

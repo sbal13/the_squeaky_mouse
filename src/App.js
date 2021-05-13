@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import Generator from './Generator'
+import Generator from './PhraseGenerator'
 import { generateRandom } from "./wordGenerator";
 import jwt from "jsonwebtoken";
 import { motivationArray } from "./data";
