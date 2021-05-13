@@ -37,7 +37,6 @@ class Generator extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="App">
         <div className="level" style={{ marginBottom: 10 }}>
