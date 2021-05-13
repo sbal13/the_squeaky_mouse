@@ -2,6 +2,11 @@
   "name": "the_squeaky_mouse",
   "version": "0.1.0",
   "private": true,
+  "description": "The Squeaky Mouse",
+  "engines": {
+    "node": "12.x",
+    "yarn": ">=1.13.x"
+  },
   "dependencies": {
     "bulma": "^0.6.2",
     "dotenv": "^5.0.1",
