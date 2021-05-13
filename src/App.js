@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import Generator from "./Generator";
+import Generator from './Generator'
 import { generateRandom } from "./wordGenerator";
 import jwt from "jsonwebtoken";
 import { motivationArray } from "./data";
@@ -41,7 +41,7 @@ class App extends Component {
             s: scrambled,
             t: searchTerm,
             p: phrase,
-            e: gifInfo.data.embed_url
+            e: gifInfo?.data?.embed_url
           },
           "squeaky"
         );
@@ -51,7 +51,7 @@ class App extends Component {
           scrambled,
           motivationalPhrase: phrase,
           searchTerm: searchTerm,
-          embedURL: gifInfo.data.embed_url,
+          embedURL: gifInfo?.data?.embed_url,
           firstPhrase: firstPhrase,
           secondPhrase: secondPhrase
         });
