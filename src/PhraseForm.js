@@ -1,13 +1,17 @@
-import React from "react"
+import React from "react";
 
-const PhraseForm = (props) => {
+const PhraseForm = props => {
+  return (
+    <button
+      onClick={props.handleClick}
+      className="button is-small is-black generate"
+    >
+      <span>Generate</span>
+      <span className="icon is-small">
+        <i className="fas fa-chevron-circle-right"></i>
+      </span>
+    </button>
+  );
+};
 
-    return (
-        <div className="container">
-            <button onClick={props.handleClick} className="button is-large is-black"><i className="fas fa-chevron-circle-right"></i></button>
-        </div>
-    )
-
-}
-
-export default PhraseForm
+export default PhraseForm;
